@@ -436,12 +436,12 @@ def pysocket():
                     break
 
                 elif button_revers.collidepoint(mouse_pos):
+                    note.play_click()
                     lnow2 = []
                     for i in lnow:
                         lnow2.append(str(i.split()[::-1]).replace("[","").replace("]","").replace("'","").replace(",",""))
                     lnow = lnow2[::-1]
                     note = Music(str(lnow).replace("[","").replace("]","").replace("'","").replace(",",""))
-                    note.play_click()
 
                 elif button_save.collidepoint(mouse_pos):
                     note.play_click()
@@ -461,23 +461,22 @@ def pysocket():
 
 
                 elif button_clear.collidepoint(mouse_pos):
-                    lnow = []
                     note.play_click()
+                    lnow = []
 
                 elif button_delete_note.collidepoint(mouse_pos):
+                    note.play_click()
                     print (lnow)
                     if (len(lnow) > 0):
                         lnow[-1] = str(lnow[-1]).split()
                         del(lnow[-1])[-1]
                         lnow[-1] = str(lnow[-1]).replace("[","").replace("]","").replace("'","").replace(",","")
                         print (lnow)
-                    note.play_click()
 
                 elif button_enter.collidepoint(mouse_pos):
                     note.play_click()
                     ROOT = tk.Tk()
                     ROOT.withdraw()
-
                     pygame.quit()
                     enter_notes = simpledialog.askstring(title="notes",prompt="enter notes")
                     ROOT.destroy()
@@ -509,9 +508,9 @@ def pysocket():
                     print ("random")
 
                 elif button_delete_last_added.collidepoint(mouse_pos):
+                    note.play_click()
                     if len(lnow) != 0:
                         del(lnow)[-1]
-                    note.play_click()
                     print ("delete last added")
 
                 elif button_open_piano.collidepoint(mouse_pos):
