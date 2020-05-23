@@ -419,7 +419,7 @@ def pysocket():
                         note.bre = False
                     elif note.bool == True:
                         note = Music(str(lnow).replace("[","").replace("]","").replace("'","").replace(",",""))
-                        t2 = threading.Thread(target= note.play_music())
+                        t2 = threading.Thread(target= note.play_music)
                         t2.start()
                         nowb = "play"
 
@@ -478,8 +478,10 @@ def pysocket():
                     print ("enter")
 
                 elif button_clear_sections.collidepoint(mouse_pos):
-                    lmusic = []
-                    #note.play_click()
+                    n = 0
+                    while len(lmusic) != 0 and n < 8:
+                        n += 1
+                        del lmusic[0]
                     print ("clear sections")
 
                 elif button_random.collidepoint(mouse_pos):
